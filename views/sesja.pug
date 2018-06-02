@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h3 ID sesji: #{idSesji}
+  h4 Locznik odwiedzin: #{odwiedziny}
+  p Zawartość req.session.cookie czyli ciasteczka:
+    ul
+      for val, key in ciasteczko
+        li #{key}: #{val}
+  p Zawartość req.session.cookie.data:
+    ul
+      for val, key in data
+        li #{key}: #{val}
+  if passport
+    p Zawartość req.session.passport
+      ul
+        for val, key in passport
+          li #{key}: #{val}

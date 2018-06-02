@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= "Aktywacja użytkowników"
+
+  table(class="table table-bordered table-striped")
+    tr
+      td="id"
+      td="username"
+      td="email"
+      td="active"
+      td="options"
+    each val in users 
+      tr
+        td=val.id
+        td=val.username
+        td=val.email
+        td=val.active
+        td
+          if !val.active
+            a(href="/users/activate/" + val.id class="btn btn-sm btn-primary ")="Activate"
+            if val.email !== 'brak'
+              br
+              a(href="/users/activation-email/" + val.id class="btn btn-sm btn-secondary ")="Send Activation email"
+
+      
+  
