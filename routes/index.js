@@ -77,7 +77,7 @@ function checkAuthentication(req, res, next) {
 }
 
 // informacje o sesji użytkownika
-router.get('/sesja', function (req, res, next) {
+router.get('/sesja',checkAuthentication, function (req, res, next) {
   if (req.session.odwiedziny) {
     req.session.odwiedziny++;
   } else {

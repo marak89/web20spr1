@@ -6,6 +6,18 @@ var User = require('../utils/db.js')
 var gmailTransporter = require('../utils/mailerTransporter.js');
 
 
+function checkAuthentication(req, res, next) {
+  console.log('sprawdzam');
+  if (req.isAuthenticated()) {
+    console.log('JEST OK');
+    // if user is looged in, req.isAuthenticated() will return true
+    next();
+  } else {
+    console.log('nie jest ok');
+    res.redirect("/login");
+  }
+}
+
 
 // lista wszystkich użytkowników w bazie
 router.get('/', function (req, res) {
@@ -60,7 +72,7 @@ router.get('/reset', function (req, res, next) {
   });
 });
 
-router.get('/activate', function (req, res) {
+router.get('/au',checkAuthentication, function (req, res) {
   User.find(function (err, data) {
     if (err) return console.error(err);
     console.log(data);
