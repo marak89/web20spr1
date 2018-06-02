@@ -97,11 +97,11 @@ router.get('/send-email', function (req, res, next) {
   // wysyła wiadomości, dane mogą byc w unicode
   let mailOptions = {
     // adres nadawcy
-    from: '"Marcin Rał" <marak89@marak89.com>',
+    from: '"Marcin Rał" <web20@t.pl>',
     // lista odbiorców
-    to: 'marak89@marak89.com',
+    to: 'web20@t.pl',
     // temat wiadomości
-    subject: 'Testowa wiadomość',
+    subject: 'Testowa wiadomość wysłana z aplikacji Marcin Rał',
     // treść wiadomości tekstowej
     text: 'Treść wiadomości jako czysty tekst',
     // treść wiadomości w html
