@@ -9,45 +9,11 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
-//var passport = require('passport');
-//LocalStrategy = require('passport-local').Strategy;
-//var User = require('./utils/db.js')
-
+var newUserRouter = require('./routes/newuser');
 
 var app = express();
-
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// passport.serializeUser(function(user, done) {
-//  // console.log(JSON.stringify(user));
-//  done(null, user._id);
-// });
-
-// passport.deserializeUser(function(id, done) {
-//  User.findById(id, function(err, user) {
-//  done(err, user);
-//  });
-// });
-
-// passport.use(new LocalStrategy(
-//  function(username, password, done) {
-//    User.findOne({ username: username }, function (err, user) {
-//    if (err) { return done(err); }
-//      if (!user) {
-//       return done(null, false, { message: 'Incorrect username.' });
-//      }
-//      if (!user.validPassword(password)) {
-//       return done(null, false, { message: 'Incorrect password.' });
-//      }
-//     return done(null, user);
-//    });
-//    }
-// ));
 
 
 // view engine setup
@@ -76,7 +42,7 @@ app.use(function(req, res, next) {
     next();
   } else{
     res.locals.logInfo = `Niezalogowany`;
-    if(req.url==='/user/activate/:id' || req.url==='/send-email' || req.url==='/' || req.url==='/sesja' || req.url==='/login' || req.url==='/users/reset' ) {
+    if(req.url==='/newuser' || '/user/activate/:id' || req.url==='/send-email' || req.url==='/' || req.url==='/sesja' || req.url==='/login' || req.url==='/users/reset' ) {
       next();
     } else {
       res.redirect("/login");
@@ -86,6 +52,7 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/newuser',newUserRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,12 +1,13 @@
 extends layout
 
 block content
-  form(action="/login", method="post")
-    div
-      label Login: 
-      input(type="text" name="username")
-    div
-      label Hasło: 
-      input(type="password" name="password")
-    div
-      input(type="submit" value="Zaloguj")
+  form(action="/login", method="post", class="form-signin")
+    h1(class="h3 mb-3 font-weight-normal")="Proszę zaloguj się"
+    label(for="inputEmail", class="sr-only")="Nazwa użytkownika:" 
+    input(type="text" name="username", id="inputEmail", class="form-control", placeholder="Nazwa użytkownika", required, autofocus)
+    label(for="inputPassword", class="sr-only")="Hasło"
+    input(type="password", name="password", id="inputPassword", class="form-control", placeholder="Hasło", required)
+    
+    input(type="submit", value="Zaloguj", class="btn btn-lg btn-primary btn-block")
+    <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+    

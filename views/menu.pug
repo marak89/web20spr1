@@ -1,0 +1,35 @@
+extends layout
+block content
+    nav( class="navbar navbar-expand-lg navbar-light bg-light")
+      a(class="navbar-brand" href="/")="SecureApp"
+        img(src="/images/logo.png", width="30", height="30", alt="")
+      button(class="navbar-toggler", type="button", data-toggle="collapse", data-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
+        span(class="navbar-toggler-icon")
+      div( class="collapse navbar-collapse", id="navbarSupportedContent")
+        ul(class="navbar-nav mr-auto")
+          li(class="nav-item active")
+            a(class="nav-link", href="/send-email")="Test email"
+          li(class="nav-item")
+            a(class="nav-link", href="/users/activate/")="Aktywacja użytkowników"
+          li(class="nav-item")
+            a(class="nav-link", href="/wazne-dane")="Ważne dane"
+          li(class="nav-item dropdown")
+            a(class="nav-link dropdown-toggle", href="#", id="navbarDropdown", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")="Użytkownicy"
+            div(class="dropdown-menu", aria-labelledby="navbarDropdown")
+             a(class="dropdown-item" href="/users")="Dane o użytkownikach"
+             a(class="dropdown-item", href="/users/reset")="Resetowanie kolekcji użytowników"
+             div(class="dropdown-divider")
+             a(class="dropdown-item", href="/sesja")="Info o sesji przeglądarki"
+             a(class="dropdown-item", href="/zalogowany")="Wszystkie istotne dane o zalogowanym użytkowniku"
+          li(class="nav-item")
+            a(class="nav-link", href="/login")="Zaloguj"
+          li(class="nav-item")
+            a(class="nav-link", href="/newuser")="Nowe konto"
+          li(class="nav-item")
+            a(class="nav-link", href="/logout")="Wyloguj"
+
+    div(class="container")
+      div(clas="row ")
+        div(class="mx-auto")
+          div( class="card col-12 col-md-8")
+            block contentMenu
