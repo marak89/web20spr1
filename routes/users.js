@@ -105,9 +105,9 @@ router.get('/activation-email/:id', function (req, res) {
       // temat wiadomości
       subject: 'Aktywacja konta',
       // treść wiadomości tekstowej
-      text: 'aktywuj: http://localhost:3000/users/activate/' + dane[0]._id,
+      text: 'aktywuj: https://web20spr1.m89.eu/users/activate/' + dane[0]._id,
       // treść wiadomości w html
-      html: `<b>aktywuj: http://localhost:3000/users/activate/` + dane[0]._id + `</b>
+      html: `<b>aktywuj: https://web20spr1.m89.eu/users/activate/` + dane[0]._id + `</b>
       <p>Jakieś znaki w unicode, grecki alfabet: α, β, γ, ...</p>`
     };
     // wysyła maila dla ustawionej warstwy transportowej dla danych opcji
