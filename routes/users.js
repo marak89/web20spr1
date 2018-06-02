@@ -107,8 +107,8 @@ router.get('/activation-email/:id', function (req, res) {
       // treść wiadomości tekstowej
       text: 'aktywuj: https://web20spr1.m89.eu/users/activate/' + dane[0]._id,
       // treść wiadomości w html
-      html: `<b>aktywuj: https://web20spr1.m89.eu/users/activate/` + dane[0]._id + `</b>
-      <p>Jakieś znaki w unicode, grecki alfabet: α, β, γ, ...</p>`
+      html: `<b>aktywuj: <a href="https://web20spr1.m89.eu/users/activate/` + dane[0]._id + `"> https://web20spr1.m89.eu/users/activate/` + dane[0]._id + `</a></b>
+      <p>Klikając w link akceptujesz politykę prywatności, regulami przetwarzania ciasteczek, politykę profilowania oraz inne polityki które zostaną wdrożone podczas kolejnej zmiany prawa.</p>`
     };
     // wysyła maila dla ustawionej warstwy transportowej dla danych opcji
     gmailTransporter.gmailTransporter.sendMail(mailOptions, (error, info) => {
