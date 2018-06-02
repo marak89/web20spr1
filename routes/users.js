@@ -31,7 +31,7 @@ router.get('/reset', function (req, res, next) {
     var asdf = new User({
       "username": "asdf",
       "password": sha1("asdf"),
-      "email": "marak89@marak89.com"
+      "email": "web20@t.pl"
     });
     var userBezMaila = new User({
       "username": "bezMaila",
